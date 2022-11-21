@@ -121,9 +121,10 @@ VelocityEllipsoidHeatSource::checkPPcondition()
     if (_temperature_pp < 100000000) { // reached threshold temperature
 		
       // update initial heat source coordinate and track time	
-      _n_track += 1;	
+      _n_track += 1;
+      int testInteger;
       printf("Hello, World!");
-      scanf("%d"); 
+      scanf("%d", &testInteger); 
       _x_coord = _init_x_coords[_n_track];
       _y_coord = _init_y_coords[_n_track];
       _z_coord = _init_z_coords[_n_track];
