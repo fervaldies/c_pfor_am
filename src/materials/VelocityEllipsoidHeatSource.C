@@ -117,8 +117,8 @@ VelocityEllipsoidHeatSource::computeQpProperties()
 void
 VelocityEllipsoidHeatSource::checkPPcondition()
 {
-  if (_temperature_pp < _temperature_pp_old) { // cooling condition
-    if (_temperature_pp < _threshold_temperature) { // reached threshold temperature
+  if (_temperature_pp < 100000000) { // cooling condition
+    if (_temperature_pp < 100000000) { // reached threshold temperature
 		
       // update initial heat source coordinate and track time	
       _n_track += 1;	
