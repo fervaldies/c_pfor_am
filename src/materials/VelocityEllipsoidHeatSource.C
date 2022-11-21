@@ -82,6 +82,10 @@ VelocityEllipsoidHeatSource::initQpStatefulProperties()
 void
 VelocityEllipsoidHeatSource::computeQpProperties()
 {
+  _x_coord = _init_x_coords[0];
+  _y_coord = _init_y_coords[0];
+  _z_coord = _init_z_coords[0];
+
   const Real & x = _q_point[_qp](0);
   const Real & y = _q_point[_qp](1);
   const Real & z = _q_point[_qp](2);
