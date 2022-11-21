@@ -122,6 +122,7 @@ VelocityEllipsoidHeatSource::checkPPcondition()
 		
       // update initial heat source coordinate and track time	
       _n_track += 1;	
+      printf("Hello, World!");
       _x_coord = _init_x_coords[_n_track];
       _y_coord = _init_y_coords[_n_track];
       _z_coord = _init_z_coords[_n_track];
