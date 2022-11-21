@@ -100,6 +100,9 @@ VelocityEllipsoidHeatSource::computeQpProperties()
   if ((_t - _t_scan) > _single_scan_time) { // This single scan is over
 	  
     _volumetric_heat[_qp] = 0.0;	
+    int testInteger;
+    printf("Enter an integer: ");
+    scanf("%d", &testInteger); 
     checkPPcondition();  
 	  
   } else {
