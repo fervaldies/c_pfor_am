@@ -34,7 +34,8 @@ VelocityEllipsoidHeatSource::validParams()
                                                    "After this time the laser is switched off. ");
   params.addRequiredParam<Real>("threshold_temperature","When the temperature provided by the postprocessor decreases "
                                                         "below this threshold, the heat source is moved to the next "
-                                                        "set of coordinates. ");                                                   
+                                                        "set of coordinates. ");         
+  params.addRequiredParam<std::vector<Real>>("temp_array", "Array containing all the temperatures");
   return params;
 }
 
@@ -62,6 +63,7 @@ VelocityEllipsoidHeatSource::VelocityEllipsoidHeatSource(const InputParameters &
     
     // Threshold temperature for the postprocessor condition
     _threshold_temperature(getParam<Real>("threshold_temperature")),
+
     // Array containing all the temperatures
     _temp_array(getParam<std::vector<Real>>("temp_array")),
     
