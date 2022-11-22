@@ -99,9 +99,13 @@ VelocityEllipsoidHeatSource::computeQpProperties()
   
   if ((_t - _t_scan) > _single_scan_time) { // This single scan is over
 	  
-    _volumetric_heat[_qp] = 0.0;	
-    printf("temp: %f", _temperature_pp);
-    printf("temp old: %f", _temperature_pp_old);
+    _volumetric_heat[_qp] = 0.0;
+	  
+    if (_temperature_pp != _temperature_pp_old) {
+	    printf("temp: %f", _temperature_pp);
+	    printf("temp old: %f", _temperature_pp_old);
+    }
+	  
     checkPPcondition();  
 	  
   } else {
