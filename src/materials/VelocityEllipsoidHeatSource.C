@@ -22,7 +22,7 @@ VelocityEllipsoidHeatSource::validParams()
   params.addParam<Real>(
       "factor", 1, "scaling factor that is multiplied to the heat source to adjust the intensity");
   params.addRequiredParam<RealVectorValue>("velocity", "Velocity vector");
-  params.addRequiredParam<RealVectorValue>("temp_array", "Array containing all the temperatures");
+  params.addRequiredParam<std::vector<Real>>("temp_array", "Array containing all the temperatures");
   
   // Every time the postprocessor condition is satisfied, the heat source is moved to the next set of coordinates
   params.addRequiredParam<std::vector<Real>>("init_x_coords", "Initial values of x coordinates of the heat source");
@@ -50,7 +50,7 @@ VelocityEllipsoidHeatSource::VelocityEllipsoidHeatSource(const InputParameters &
     _velocity(getParam<RealVectorValue>("velocity")), // Scanning speed vector
 
     // Array containing all the temperatures
-    _temp_array(getParam<RealVectorValue>("temp_array")),
+    _temp_array(getParam<std::vector<Real>>("temp_array")),
     
     // Initial values of the coordinates of the heat source
     _init_x_coords(getParam<std::vector<Real>>("init_x_coords")),
