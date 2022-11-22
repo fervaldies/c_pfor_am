@@ -46,7 +46,7 @@ protected:
   RealVectorValue _velocity;
   
   /// Array Temperatures
-  const std::vector<Real> _temp_array;
+  std::vector<Real> _temp_array;
   
   /// Initial values of the coordinates of the heat source
   /// Every time the postprocessor condition is satisfied, 
