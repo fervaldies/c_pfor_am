@@ -109,7 +109,7 @@ VelocityEllipsoidHeatSource::computeQpProperties()
     if (_temperature_pp != _temp_array[(int)_t-1]) {
 	    printf("temp: %f", _temperature_pp);
 	    printf("temp old: %f", _temp_array[(int)_t-1]);
-	    printf("n track: %d", _n_track-32);
+	    printf("n track: %d", _n_track);
 	    printf("t_scan: %f", _t_scan);
 	    printf("t_real: %f", _t);
     }
