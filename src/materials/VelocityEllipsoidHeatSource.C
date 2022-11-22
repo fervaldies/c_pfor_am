@@ -85,7 +85,7 @@ VelocityEllipsoidHeatSource::computeQpProperties()
   _x_coord = _init_x_coords[_n_track-32];
   _y_coord = _init_y_coords[_n_track-32];
   _z_coord = _init_z_coords[_n_track-32];
-  int temp_array[100];
+  Real temp_array[100];
   temp_array[_t+1] = _temperature_pp
 
   const Real & x = _q_point[_qp](0);
