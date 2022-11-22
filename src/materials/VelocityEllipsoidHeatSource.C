@@ -115,13 +115,10 @@ VelocityEllipsoidHeatSource::computeQpProperties()
 // Check if the postprocessor temperature condition is satisfied
 // and change the initial coordinates and scan time
 void
-VelocityEllipsoidHeatSource::checkPPcondition()
+VelocityEllipsoidHeatSource::checkPPcondition(int a)
 {
-  int testInteger;
-  printf(temperature_pp);
-  printf(temperature_pp_old);
-  scanf("Print integer: %d", &testInteger); 
   if (_temperature_pp < _temperature_pp_old) { // cooling condition
+    printf("Number: %d", a)
     if (_temperature_pp < _threshold_temperature) { // reached threshold temperature
 		
       // update initial heat source coordinate and track time	
@@ -135,8 +132,9 @@ VelocityEllipsoidHeatSource::checkPPcondition()
   }
 }
 
-// Print temperatures to check condition
 int main() {
-    VelocityEllipsoidHeatSource::checkPPcondition()
+    
+    VelocityEllipsoidHeatSource::checkPPcondition(13);
+
     return 0;
 }
