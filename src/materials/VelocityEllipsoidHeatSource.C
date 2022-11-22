@@ -29,6 +29,7 @@ VelocityEllipsoidHeatSource::validParams()
   params.addRequiredParam<std::vector<Real>>("init_z_coords", "Initial values of z coordinates of the heat source");
   
   params.addRequiredParam<PostprocessorName>("temperature_pp","Postprocessor with temperature value to determine heat source motion.");
+  params.addRequiredParam<PostprocessorName>("temperature_pp_old","Postprocessor with temperature value to determine heat source motion Old.");
       
   params.addRequiredParam<Real>("single_scan_time","Total time during one scan. "
                                                    "After this time the laser is switched off. ");
