@@ -55,7 +55,7 @@ VelocityEllipsoidHeatSource::VelocityEllipsoidHeatSource(const InputParameters &
     
     // Postprocess with temperature value
     _temperature_pp(getPostprocessorValue("temperature_pp")),
-   // _temperature_pp_old(getPostprocessorValue("temperature_pp_old")),
+    _temperature_pp_old(getPostprocessorValueOld("temperature_pp")),
     
     // Total time during one scan
     _single_scan_time(getParam<Real>("single_scan_time")),
@@ -77,7 +77,6 @@ VelocityEllipsoidHeatSource::initQpStatefulProperties()
   _z_coord = _init_z_coords[0];
   _t_scan = _t;
   _n_track = 0;
-  float temp_array[100];
 }
 
 void
@@ -86,6 +85,7 @@ VelocityEllipsoidHeatSource::computeQpProperties()
   _x_coord = _init_x_coords[_n_track-32];
   _y_coord = _init_y_coords[_n_track-32];
   _z_coord = _init_z_coords[_n_track-32];
+  float temp_array[100];
   temp_array[_t] = _temperature_pp
 
   const Real & x = _q_point[_qp](0);
