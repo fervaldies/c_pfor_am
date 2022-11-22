@@ -62,6 +62,8 @@ VelocityEllipsoidHeatSource::VelocityEllipsoidHeatSource(const InputParameters &
     
     // Threshold temperature for the postprocessor condition
     _threshold_temperature(getParam<Real>("threshold_temperature")),
+    // Array containing all the temperatures
+    _temp_array(getParam<std::vector<Real>>("temp_array")),
     
     // Volumetric heat source used by the kernel
     _volumetric_heat(declareADProperty<Real>("volumetric_heat"))
@@ -85,7 +87,6 @@ VelocityEllipsoidHeatSource::computeQpProperties()
   _x_coord = _init_x_coords[_n_track-32];
   _y_coord = _init_y_coords[_n_track-32];
   _z_coord = _init_z_coords[_n_track-32];
-  float temp_array[100];
   temp_array[(int)_t] = _temperature_pp;
 
   const Real & x = _q_point[_qp](0);
@@ -128,7 +129,6 @@ VelocityEllipsoidHeatSource::computeQpProperties()
 void
 VelocityEllipsoidHeatSource::checkPPcondition()
 {
-  float temp_array[100];
   if (_temperature_pp < temp_array[(int)_t-1]) { // cooling condition
     if (_temperature_pp < _threshold_temperature) { // reached threshold temperature
 		
