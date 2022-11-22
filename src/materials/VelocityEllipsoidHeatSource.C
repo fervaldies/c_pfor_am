@@ -101,6 +101,7 @@ VelocityEllipsoidHeatSource::computeQpProperties()
 	  
     _volumetric_heat[_qp] = 0.0;	
     printf("temp: %f", _temperature_pp);
+    printf("temp old: %f", _temperature_pp_old);
     checkPPcondition();  
 	  
   } else {
