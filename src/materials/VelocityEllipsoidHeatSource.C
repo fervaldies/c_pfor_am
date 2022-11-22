@@ -48,6 +48,9 @@ VelocityEllipsoidHeatSource::VelocityEllipsoidHeatSource(const InputParameters &
     _rz(getParam<Real>("rz")),
     _f(getParam<Real>("factor")),
     _velocity(getParam<RealVectorValue>("velocity")), // Scanning speed vector
+
+    // Array containing all the temperatures
+    _temp_array(getParam<std::vector<Real>>("temp_array")),
     
     // Initial values of the coordinates of the heat source
     _init_x_coords(getParam<std::vector<Real>>("init_x_coords")),
@@ -63,9 +66,6 @@ VelocityEllipsoidHeatSource::VelocityEllipsoidHeatSource(const InputParameters &
     
     // Threshold temperature for the postprocessor condition
     _threshold_temperature(getParam<Real>("threshold_temperature")),
-
-    // Array containing all the temperatures
-    _temp_array(getParam<std::vector<Real>>("temp_array")),
     
     // Volumetric heat source used by the kernel
     _volumetric_heat(declareADProperty<Real>("volumetric_heat"))
