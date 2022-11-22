@@ -118,8 +118,8 @@ void
 VelocityEllipsoidHeatSource::checkPPcondition()
 {
   int testInteger;
-  printf(_temperature_pp);
-  printf(_temperature_pp_old);
+  printf(temperature_pp);
+  printf(temperature_pp_old);
   scanf("Print integer: %d", &testInteger); 
   if (_temperature_pp < _temperature_pp_old) { // cooling condition
     if (_temperature_pp < _threshold_temperature) { // reached threshold temperature
