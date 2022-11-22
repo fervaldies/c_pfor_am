@@ -50,7 +50,7 @@ VelocityEllipsoidHeatSource::VelocityEllipsoidHeatSource(const InputParameters &
     _velocity(getParam<RealVectorValue>("velocity")), // Scanning speed vector
 
     // Array containing all the temperatures
-    _temp_array(getParam<std::vector<Real>>("temp_array")),
+    _temp_array(getParam<RealVectorValue>("temp_array")),
     
     // Initial values of the coordinates of the heat source
     _init_x_coords(getParam<std::vector<Real>>("init_x_coords")),
