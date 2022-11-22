@@ -86,7 +86,7 @@ VelocityEllipsoidHeatSource::computeQpProperties()
   _y_coord = _init_y_coords[_n_track-32];
   _z_coord = _init_z_coords[_n_track-32];
   float temp_array[100];
-  temp_array[(int)_t] = _temperature_pp
+  temp_array[(int)_t] = _temperature_pp;
 
   const Real & x = _q_point[_qp](0);
   const Real & y = _q_point[_qp](1);
@@ -105,7 +105,7 @@ VelocityEllipsoidHeatSource::computeQpProperties()
 	  
     if (_temperature_pp != temp_array[_t-1]) {
 	    printf("temp: %f", _temperature_pp);
-	    printf("temp old: %f", temp_array[_t-1]);
+	    printf("temp old: %f", temp_array[(int)_t]);
 	    printf("n track: %d", _n_track-32);
 	    printf("t_scan: %f", _t_scan);
 	    printf("t_real: %f", _t);
@@ -128,7 +128,8 @@ VelocityEllipsoidHeatSource::computeQpProperties()
 void
 VelocityEllipsoidHeatSource::checkPPcondition()
 {
-  if (_temperature_pp < temp_array[_t-1]) { // cooling condition
+  float temp_array[100];
+  if (_temperature_pp < temp_array[(int)_t]) { // cooling condition
     if (_temperature_pp < _threshold_temperature) { // reached threshold temperature
 		
       // update initial heat source coordinate and track time	
