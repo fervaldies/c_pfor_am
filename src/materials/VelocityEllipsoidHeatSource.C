@@ -55,7 +55,7 @@ VelocityEllipsoidHeatSource::VelocityEllipsoidHeatSource(const InputParameters &
     
     // Postprocess with temperature value
     _temperature_pp(getPostprocessorValue("temperature_pp")),
-    _temperature_pp_old(getPostprocessorValueOlder("temperature_pp")),
+    _temperature_pp_old(getPostprocessorValue("temperature_pp_old")),
     
     // Total time during one scan
     _single_scan_time(getParam<Real>("single_scan_time")),
