@@ -45,6 +45,9 @@ protected:
   /// Scanning speed vector
   RealVectorValue _velocity;
   
+  /// Array Temperatures
+  RealVectorValue _temp_array;
+  
   /// Initial values of the coordinates of the heat source
   /// Every time the postprocessor condition is satisfied, 
   /// the heat source is moved to the next set of coordinates
