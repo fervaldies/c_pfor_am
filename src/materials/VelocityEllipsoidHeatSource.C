@@ -100,6 +100,7 @@ VelocityEllipsoidHeatSource::computeQpProperties()
   if ((_t - _t_scan) > _single_scan_time) { // This single scan is over
 	  
     _volumetric_heat[_qp] = 0.0;	
+    printf(_temperature_pp)
     checkPPcondition();  
 	  
   } else {
@@ -115,10 +116,9 @@ VelocityEllipsoidHeatSource::computeQpProperties()
 // Check if the postprocessor temperature condition is satisfied
 // and change the initial coordinates and scan time
 void
-VelocityEllipsoidHeatSource::checkPPcondition(int a)
+VelocityEllipsoidHeatSource::checkPPcondition()
 {
   if (_temperature_pp < _temperature_pp_old) { // cooling condition
-    printf("Number: %d", a)
     if (_temperature_pp < _threshold_temperature) { // reached threshold temperature
 		
       // update initial heat source coordinate and track time	
@@ -130,11 +130,4 @@ VelocityEllipsoidHeatSource::checkPPcondition(int a)
   		
 	}
   }
-}
-
-int main() {
-    
-    VelocityEllipsoidHeatSource::checkPPcondition(13);
-
-    return 0;
 }
