@@ -22,6 +22,7 @@ VelocityEllipsoidHeatSource::validParams()
   params.addParam<Real>(
       "factor", 1, "scaling factor that is multiplied to the heat source to adjust the intensity");
   params.addRequiredParam<RealVectorValue>("velocity", "Velocity vector");
+  params.addRequiredParam<RealVectorValue>("temp_array", "Array containing all the temperatures");
   
   // Every time the postprocessor condition is satisfied, the heat source is moved to the next set of coordinates
   params.addRequiredParam<std::vector<Real>>("init_x_coords", "Initial values of x coordinates of the heat source");
@@ -34,8 +35,7 @@ VelocityEllipsoidHeatSource::validParams()
                                                    "After this time the laser is switched off. ");
   params.addRequiredParam<Real>("threshold_temperature","When the temperature provided by the postprocessor decreases "
                                                         "below this threshold, the heat source is moved to the next "
-                                                        "set of coordinates. ");         
-  params.addRequiredParam<std::vector<Real>>("temp_array", "Array containing all the temperatures");
+                                                        "set of coordinates. ");       
   return params;
 }
 
