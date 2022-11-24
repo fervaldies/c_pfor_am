@@ -10,7 +10,7 @@ To install after MOOSE installation:
 
 cd ~/projects
 
-git clone https://github.com/ngrilli/c_pfor_am
+git clone https://github.com/fervaldies/c_pfor_am_Fernando
 
 cd c_pfor_am
 
