@@ -115,8 +115,6 @@ VelocityEllipsoidHeatSource::computeQpProperties()
     checkPPcondition();  
 	  
   } else {
-	  
-    printf("n track: %d", _n_track);
 
     _volumetric_heat[_qp] = 6.0 * std::sqrt(3.0) * _P * _eta * _f /
                             (_rx * _ry * _rz * std::pow(libMesh::pi, 1.5)) *
@@ -135,6 +133,7 @@ VelocityEllipsoidHeatSource::checkPPcondition()
     if (_temperature_pp < _threshold_temperature) { // reached threshold temperature
 		
       // update initial heat source coordinate and track time	
+      printf("n track: %d", _n_track);
       _n_track += 1;
       _x_coord = _init_x_coords[_n_track];
       _y_coord = _init_y_coords[_n_track];
