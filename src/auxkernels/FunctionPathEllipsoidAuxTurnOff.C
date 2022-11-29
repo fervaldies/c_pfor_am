@@ -6,10 +6,10 @@
 
 #include "Function.h"
 
-registerMooseObject("MooseApp", FunctionPathEllipsoidAux);
+registerMooseObject("MooseApp", FunctionPathEllipsoidAuxTurnOff);
 
 InputParameters
-FunctionPathEllipsoidAux::validParams()
+FunctionPathEllipsoidAuxTurnOff::validParams()
 {
   InputParameters params = AuxKernel::validParams();
   params.addClassDescription("This AuxKernel increases an AuxVariable from 0 to 1 if the qp is inside "
@@ -40,7 +40,7 @@ FunctionPathEllipsoidAux::validParams()
   return params;
 }
 
-FunctionPathEllipsoidAux::FunctionPathEllipsoidAux(const InputParameters & parameters)
+FunctionPathEllipsoidAuxTurnOff::FunctionPathEllipsoidAuxTurnOff(const InputParameters & parameters)
   : AuxKernel(parameters),
     _low_level_set_var(getParam<Real>("low_level_set_var")),
 	_high_level_set_var(getParam<Real>("high_level_set_var")),
@@ -71,7 +71,7 @@ FunctionPathEllipsoidAux::FunctionPathEllipsoidAux(const InputParameters & param
 }
 
 Real
-FunctionPathEllipsoidAux::computeValue()
+FunctionPathEllipsoidAuxTurnOff::computeValue()
 {
   // value of the level set variable at the previous time step
   Real old_level_set = _u[_qp];
@@ -133,7 +133,7 @@ FunctionPathEllipsoidAux::computeValue()
 // Check if the postprocessor temperature condition is satisfied
 // and change the initial coordinates and scan time
 void
-FunctionPathEllipsoidAux::checkPPcondition()
+FunctionPathEllipsoidAuxTurnOff::checkPPcondition()
 {
   if (_temperature_pp < _temp_array[(int)_t-1]) { // cooling condition
     if (_temperature_pp < _threshold_temperature) { // reached threshold temperature
