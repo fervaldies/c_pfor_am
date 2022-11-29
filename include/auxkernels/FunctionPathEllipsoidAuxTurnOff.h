@@ -15,12 +15,12 @@ class Function;
  * to simulate the material deposition during wire arc additive manufacturing
  * together with ActDeactElementsCoupled.
  */
-class FunctionPathEllipsoidAux : public AuxKernel
+class FunctionPathEllipsoidAuxTurnOff : public AuxKernel
 {
 public:
   static InputParameters validParams();
 
-  FunctionPathEllipsoidAux(const InputParameters & parameters);
+  FunctionPathEllipsoidAuxTurnOff(const InputParameters & parameters);
 
 protected:
   virtual Real computeValue() override;
