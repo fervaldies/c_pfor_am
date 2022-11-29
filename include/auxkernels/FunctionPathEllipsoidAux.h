@@ -36,11 +36,48 @@ protected:
   const Real _ry;
   /// longitudinal ellipsoid axe
   const Real _rz;
-
-  /// path of the heat source, x, y, z components
-  const Function & _function_x;
-  const Function & _function_y;
-  const Function & _function_z;
+  
+  /// Scanning speed vector
+  RealVectorValue _velocity;
+  
+  /// Array Temperatures
+  std::vector<Real> _temp_array;
+  
+  /// Initial values of the coordinates of the heat source
+  /// Every time the postprocessor condition is satisfied, 
+  /// the heat source is moved to the next set of coordinates
+  const std::vector<Real> _init_x_coords;
+  const std::vector<Real> _init_y_coords;
+  const std::vector<Real> _init_z_coords;
+  
+  /// Postprocess with temperature value
+  /// it provides the condition based on which the heat source
+  /// is moved to the next set of initial coordinates
+  const PostprocessorValue & _temperature_pp;
+  const PostprocessorValue & _temperature_pp_old;
+  
+  /// variables to store the coordinates 
+  /// of the center of the heat source
+  Real _x_coord;
+  Real _y_coord;
+  Real _z_coord;
+  
+  /// _t_scan tracks the simulation time at which a new
+  /// scan begins after the condition based on the postprocessor
+  /// changes the coordinates of the heat source
+  Real _t_scan;
+  
+  /// Total time during one scan
+  /// After this time the laser is switched off
+  const Real _single_scan_length;
+  
+  /// When the temperature provided by the postprocessor decreases
+  /// below this threshold, the heat source is moved to the next
+  /// set of coordinates
+  const Real _threshold_temperature;
+  
+  /// Heat source track index
+  int _n_track;
   
   // Threshold value of the ellipsoid function
   // that activates the level set.
