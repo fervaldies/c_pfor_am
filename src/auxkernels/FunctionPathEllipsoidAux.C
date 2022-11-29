@@ -92,7 +92,7 @@ FunctionPathEllipsoidAux::computeValue()
   Real y_t = _y_coord + _velocity(1) * (_t - _t_scan);
   Real z_t = _z_coord + _velocity(2) * (_t - _t_scan);
   
-	
+  Real val;	
   if (x_t = _single_scan_length) { // This single scan is over
 	  
     val = 0.0;
@@ -102,7 +102,7 @@ FunctionPathEllipsoidAux::computeValue()
   } else {
   
   // ellipsoid function value
-  Real val;
+  
   
   val = 6.0 * std::sqrt(3.0) /
           (_rx * _ry * _rz * std::pow(libMesh::pi, 1.5)) *
