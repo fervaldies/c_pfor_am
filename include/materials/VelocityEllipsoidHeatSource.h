@@ -74,7 +74,7 @@ protected:
   
   /// Total time during one scan
   /// After this time the laser is switched off
-  const Real _single_scan_time;
+  const Real _single_scan_length;
   
   /// When the temperature provided by the postprocessor decreases
   /// below this threshold, the heat source is moved to the next
