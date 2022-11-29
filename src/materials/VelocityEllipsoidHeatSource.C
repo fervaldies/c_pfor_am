@@ -31,8 +31,8 @@ VelocityEllipsoidHeatSource::validParams()
   
   params.addRequiredParam<PostprocessorName>("temperature_pp","Postprocessor with temperature value to determine heat source motion.");
       
-  params.addRequiredParam<Real>("single_scan_time","Total time during one scan. "
-                                                   "After this time the laser is switched off. ");
+  params.addRequiredParam<Real>("single_scan_length","Total length during one scan. "
+                                                   "After this length the laser is switched off. ");
   params.addRequiredParam<Real>("threshold_temperature","When the temperature provided by the postprocessor decreases "
                                                         "below this threshold, the heat source is moved to the next "
                                                         "set of coordinates. ");       
@@ -61,8 +61,8 @@ VelocityEllipsoidHeatSource::VelocityEllipsoidHeatSource(const InputParameters &
     _temperature_pp(getPostprocessorValue("temperature_pp")),
     _temperature_pp_old(getPostprocessorValueOld("temperature_pp")),
     
-    // Total time during one scan
-    _single_scan_time(getParam<Real>("single_scan_time")),
+    // Total length during one scan
+    _single_scan_length(getParam<Real>("single_scan_length")),
     
     // Threshold temperature for the postprocessor condition
     _threshold_temperature(getParam<Real>("threshold_temperature")),
@@ -100,7 +100,7 @@ VelocityEllipsoidHeatSource::computeQpProperties()
   Real z_t = _z_coord + _velocity(2) * (_t - _t_scan);
   
 	
-  if ((_t - _t_scan) > _single_scan_time) { // This single scan is over
+  if (x_t = _single_scan_length) { // This single scan is over
 	  
     _volumetric_heat[_qp] = 0.0;
 	  
@@ -135,6 +135,7 @@ VelocityEllipsoidHeatSource::checkPPcondition()
       // update initial heat source coordinate and track time	
       printf("n track: %d", _n_track);
       _n_track += 1;
+      _velocity(0) = -_velocity(0);
       _x_coord = _init_x_coords[_n_track];
       _y_coord = _init_y_coords[_n_track];
       _z_coord = _init_z_coords[_n_track];
