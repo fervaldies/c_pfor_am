@@ -100,10 +100,9 @@ VelocityEllipsoidHeatSource::computeQpProperties()
   Real z_t = _z_coord + _velocity(2) * (_t - _t_scan);
   
 	
-  if (x_t <= _single_scan_length) { // This single scan is over
+  if (abs(x_t-_x_coord) <= _single_scan_length) { // This single scan is over
 	  
     _volumetric_heat[_qp] = 0.0;
-    printf("n track: %d", _n_track);
 	  
     if (_temperature_pp != _temp_array[(int)_t]) {
 	    //printf("temp: %f", _temperature_pp);
@@ -116,7 +115,7 @@ VelocityEllipsoidHeatSource::computeQpProperties()
     checkPPcondition();  
 	  
   } else {
-    printf("x_t: %f", x_t);
+    
     _volumetric_heat[_qp] = 6.0 * std::sqrt(3.0) * _P * _eta * _f /
                             (_rx * _ry * _rz * std::pow(libMesh::pi, 1.5)) *
                             std::exp(-(3.0 * std::pow(x - x_t, 2.0) / std::pow(_rx, 2.0) +
