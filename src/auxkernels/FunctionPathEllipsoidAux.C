@@ -36,7 +36,9 @@ FunctionPathEllipsoidAux::validParams()
                                                    "After this length the laser is switched off. ");
   params.addRequiredParam<Real>("threshold_temperature","When the temperature provided by the postprocessor decreases "
                                                         "below this threshold, the heat source is moved to the next "
-                                                        "set of coordinates. ");  	  
+                                                        "set of coordinates. ");  
+  params.addParam<Real>("level_set_activation_threshold", 0.5, "Threshold value of the ellipsoid function "
+									"that activates the level set.");	
   return params;
 }
 
