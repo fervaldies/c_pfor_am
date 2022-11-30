@@ -141,7 +141,7 @@ FunctionPathEllipsoidAux::checkPPcondition()
     if (_temperature_pp < _threshold_temperature) { // reached threshold temperature
 		
       // update initial heat source coordinate and track time	
-      //printf("n track: %d", _n_track);
+      printf("n track: %d", _n_track);
       _n_track += 1;
       _velocity(0) = -_velocity(0);
       _x_coord = _init_x_coords[_n_track];
