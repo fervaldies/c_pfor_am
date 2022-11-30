@@ -103,6 +103,7 @@ VelocityEllipsoidHeatSource::computeQpProperties()
   if (x_t = _single_scan_length) { // This single scan is over
 	  
     _volumetric_heat[_qp] = 0.0;
+    printf("n track: %d", _n_track);
 	  
     if (_temperature_pp != _temp_array[(int)_t]) {
 	    //printf("temp: %f", _temperature_pp);
