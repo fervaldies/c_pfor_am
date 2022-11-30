@@ -95,7 +95,7 @@ FunctionPathEllipsoidAux::computeValue()
   Real z_t = _z_coord + _velocity(2) * (_t - _t_scan);
   
   Real val;	
-  if (abs(x_t-_x_coord) <= _single_scan_length) { // This single scan is over
+  if (abs(x_t-_x_coord) >= _single_scan_length) { // This single scan is over
 	  
     val = 0.0;
 	  
