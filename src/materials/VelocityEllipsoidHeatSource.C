@@ -100,7 +100,7 @@ VelocityEllipsoidHeatSource::computeQpProperties()
   Real z_t = _z_coord + _velocity(2) * (_t - _t_scan);
   
 	
-  if (x_t == _single_scan_length) { // This single scan is over
+  if (x_t <= _single_scan_length) { // This single scan is over
 	  
     _volumetric_heat[_qp] = 0.0;
     printf("n track: %d", _n_track);
