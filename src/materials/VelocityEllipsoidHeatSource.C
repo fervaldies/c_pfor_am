@@ -116,7 +116,7 @@ VelocityEllipsoidHeatSource::computeQpProperties()
     checkPPcondition();  
 	  
   } else {
-
+    printf("x_t: %d", x_t);
     _volumetric_heat[_qp] = 6.0 * std::sqrt(3.0) * _P * _eta * _f /
                             (_rx * _ry * _rz * std::pow(libMesh::pi, 1.5)) *
                             std::exp(-(3.0 * std::pow(x - x_t, 2.0) / std::pow(_rx, 2.0) +
