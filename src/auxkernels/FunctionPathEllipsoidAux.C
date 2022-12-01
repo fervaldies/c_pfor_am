@@ -73,7 +73,7 @@ FunctionPathEllipsoidAux::FunctionPathEllipsoidAux(const InputParameters & param
 }
 
 void
-VelocityEllipsoidHeatSource::initQpStatefulProperties()
+FunctionPathEllipsoidAux::initQpStatefulProperties()
 {
   // Initialize coordinates of the heat source
   _t_scan = _t;
