@@ -24,7 +24,7 @@ public:
 
 protected:
   virtual void initQpStatefulProperties() override;
-  virtual Real computeQpProperties() override;
+  virtual Real computeValue() override;
   
   virtual void checkPPcondition();
   
