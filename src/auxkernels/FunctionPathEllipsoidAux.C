@@ -77,6 +77,7 @@ FunctionPathEllipsoidAux::initQpStatefulProperties()
 {
   // Initialize coordinates of the heat source
   _n_track = 0;
+  _t_scan = _t;
 }
 
 Real
@@ -84,7 +85,7 @@ FunctionPathEllipsoidAux::computeValue()
 {
   // value of the level set variable at the previous time step
   Real old_level_set = _u[_qp];
-  _t_scan = _t;
+  
   _x_coord = _init_x_coords[_n_track];
   _y_coord = _init_y_coords[_n_track];
   _z_coord = _init_z_coords[_n_track];
