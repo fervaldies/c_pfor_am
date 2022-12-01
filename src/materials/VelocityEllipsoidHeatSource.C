@@ -78,14 +78,14 @@ VelocityEllipsoidHeatSource::initQpStatefulProperties()
   // Initialize coordinates of the heat source
   _t_scan = _t;
   _n_track = 0;
+  _x_coord = _init_x_coords[0];
+  _y_coord = _init_y_coords[0];
+  _z_coord = _init_z_coords[0];
 }
 
 void
 VelocityEllipsoidHeatSource::computeQpProperties()
 {
-  _x_coord = _init_x_coords[0];
-  _y_coord = _init_y_coords[0];
-  _z_coord = _init_z_coords[0];
   _temp_array[(int)_t] = _temperature_pp;
 
   const Real & x = _q_point[_qp](0);
