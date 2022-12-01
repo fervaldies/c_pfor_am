@@ -84,7 +84,7 @@ FunctionPathEllipsoidAux::initQpStatefulProperties()
 }
 
 Real
-FunctionPathEllipsoidAux::computeQpProperties()
+FunctionPathEllipsoidAux::computeValue()
 {
   // value of the level set variable at the previous time step
   Real old_level_set = _u[_qp];
